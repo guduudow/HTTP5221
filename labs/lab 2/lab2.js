@@ -1,6 +1,7 @@
 window.onload = domReady;
 
 function domReady() {
+    "use strict";
     let formHandle = document.querySelector(".login");
     formHandle.onsubmit = function () {
         let userInput = document.querySelector(".login__user");
