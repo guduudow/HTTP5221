@@ -1,5 +1,5 @@
 /**
- * the checkLogin function will validate user input,
+ * The checkLogin function will validate user input,
  * checking if the username and password match.
  * The username & password will be encrypted with MD5
  * so checkLogin will require the md5Encrypt function.
@@ -13,15 +13,15 @@ function checkLogin(username, password) {
     let correctUser = 'ederes';
     let correctPass = md5Encrypt("gure");
 
-    if (username == "") {
+    if (username === "") {
         return "no username entered";
-    }
-    if (password == "") {
+    } else if (password === "") {
         return "no password entered";
-    }
-    if (username !== correctUser || password !== correctPass) {
+    } else if (username !== correctUser || md5Encrypt(password) !== correctPass.toString()) {
         return "invalid username or password";
+    } else {
+        return true;
     }
 
-    return true;
+    //return true;
 }

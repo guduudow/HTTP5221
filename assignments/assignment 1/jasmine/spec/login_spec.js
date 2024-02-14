@@ -15,11 +15,11 @@ describe("checkLogin Test with Jasmine", function () {
         });
     })
     describe("Test to Fail", function () {
-        it("Should return false if the username is empty", function () {
+        it("Should no username entered if the username is empty", function () {
             let login = checkLogin('', md5Encrypt('gure'));
             expect(login).toBe('no username entered');
         })
-        it("Should return false if the password is empty", function () {
+        it("Should return no password entered if the password is empty", function () {
             let login = checkLogin('ederes', '');
             expect(login).toBe('no password entered');
         })

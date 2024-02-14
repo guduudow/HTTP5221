@@ -1,19 +1,31 @@
 window.onload = function () {
     let loginHandle = document.querySelector('.login__button');
     console.log(loginHandle);
-    loginHandle.addEventListener('click', function () {
-        //create variable to connect to HTML
+    loginHandle.addEventListener('click', function (e) {
+        e.preventDefault();
+        //create variables to connect to HTML
         let userInput = document.querySelector('.login__user');
         let passInput = document.querySelector('.login__pass');
-        let validLogin = document.querySelector('.output');
+        let validLogin = document.querySelector('.login__text');
+        let output = document.querySelector('.output');
         //then call checkLogin function
-        checkLogin(userInput, passInput);
-        //then if correct - innerHTML statement says correct!
-        if (userInput.value == 'ederes' && passInput.value == 'gure') {
-            validLogin.innerHTML = `Welcome Back!`;
+        let checker = checkLogin(userInput.value, passInput.value);
+        console.log(checker);
+        console.log(validLogin);
+        //then if correct - innerHTML statement says correct! and if wrong statement says wrong!
+        if (checker === true) {
+            output.style.display = 'block';
+            validLogin.innerHTML = `<h1>Welcome Back!</h1>`;
+        } else if (userInput.value === "") {
+            output.style.display = "block";
+            validLogin.innerHTML = `<h1>Incorrect: No username entered.`;
+        } else if (passInput.value === "") {
+            output.style.display = "block";
+            validLogin.innerHTML = `<h1>Incorrect: No password entered.`;
         } else {
-            validLogin.innerHTML = `Incorrect!`;
+            output.style.display = 'block';
+            validLogin.innerHTML = `<h1>Incorrect! Invalid login or password. </h1>`;
         }
-        //if not - innerHTML statement says wrong!
     });
 }
+
