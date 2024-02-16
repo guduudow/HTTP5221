@@ -16,15 +16,9 @@ window.onload = function () {
         if (checker === true) {
             output.style.display = 'block';
             validLogin.innerHTML = `<h1>Welcome Back!</h1>`;
-        } else if (userInput.value === "") {
-            output.style.display = "block";
-            validLogin.innerHTML = `<h1>Incorrect: No username entered.`;
-        } else if (passInput.value === "") {
-            output.style.display = "block";
-            validLogin.innerHTML = `<h1>Incorrect: No password entered.`;
         } else {
             output.style.display = 'block';
-            validLogin.innerHTML = `<h1>Incorrect! Invalid login or password. </h1>`;
+            validLogin.innerHTML = `<h1>${checker}</h1>`;
         }
     });
 }
